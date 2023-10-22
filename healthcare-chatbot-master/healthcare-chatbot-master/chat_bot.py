@@ -21,7 +21,7 @@ x = training['prognosis']
 y1= y
 
 
-reduced_data = training.groupby(training['prognosis']).max()
+reduced_data = training.groupby(training['prognosis']).max()  
 
 #mapping strings to numbers
 le = preprocessing.LabelEncoder()
