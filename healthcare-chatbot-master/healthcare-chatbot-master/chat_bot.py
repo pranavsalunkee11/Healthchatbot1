@@ -45,7 +45,7 @@ print (scores.mean())
 
 
 model=SVC()
-model.fit(x_train,y_train)
+model.fit(x_train,y_train)  
 print("for svm: ")
 print(model.score(x_test,y_test))
 
