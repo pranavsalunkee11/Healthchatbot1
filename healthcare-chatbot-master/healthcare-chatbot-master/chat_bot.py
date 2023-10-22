@@ -16,8 +16,8 @@ training = pd.read_csv('Data/Training.csv')
 testing= pd.read_csv('Data/Testing.csv')
 cols= training.columns
 cols= cols[:-1]
-x = training[cols]
-y = training['prognosis']
+y = training[cols]
+x = training['prognosis']
 y1= y
 
 
