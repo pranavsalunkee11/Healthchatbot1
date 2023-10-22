@@ -49,8 +49,8 @@ model.fit(x_train,y_train)
 print("for svm: ")
 print(model.score(x_test,y_test))
 
-importances = clf.feature_importances_
-indices = np.argsort(importances)[::-1]
+importance = clf.feature_importances_
+indices = np.argsort(importance)[::-1]
 features = cols
 
 def readn(nstr):
