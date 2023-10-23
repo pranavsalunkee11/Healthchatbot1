@@ -1,4 +1,4 @@
-import re
+pimport re
 import pandas as pd
 import pyttsx3
 from sklearn import preprocessing
@@ -78,7 +78,7 @@ def calc_condition(exp,days):
          sum=sum+severityDictionary[item]
     if((sum*days)/(len(exp)+1)>13):
         print("You should take the consultation from doctor. ")
-    if:
+    else :
         print("It might not be that bad but you should take precautions.")
 
 
