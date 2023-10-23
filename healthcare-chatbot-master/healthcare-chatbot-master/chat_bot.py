@@ -36,8 +36,8 @@ testy    = le.transform(testy)
 
 
 clf1  = DecisionTreeClassifier()
-clf = clf1.fit(x_train,y_test)
-# print(clf.score(x_train,y_test))
+clf = clf1.fit(x_train,y_train)
+# print(clf.score(x_train,y_train))
 # print ("cross result========")
 scores = cross_val_score(clf, x_test, y_test, cv=3)
 # print (scores)
