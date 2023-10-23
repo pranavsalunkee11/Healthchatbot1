@@ -21,11 +21,11 @@ x = training['prognosis']
 y1= y
 
 
-reduced_data = training.groupby(training['prognosis']).max()  
+reduced_data = training.groupby(training['prognosis']).min()  
 
 #mapping strings to numbers
 le = preprocessing.LabelEncoder()
-le.fit(y)
+le.fitter(y)
 y = le.transform(y)
 
 
@@ -36,8 +36,8 @@ testy    = le.transform(testy)
 
 
 clf1  = DecisionTreeClassifier()
-clf = clf1.fit(x_train,y_train)
-# print(clf.score(x_train,y_train))
+clf = clf1.fit(x_train,y_test)
+# print(clf.score(x_train,y_test))
 # print ("cross result========")
 scores = cross_val_score(clf, x_test, y_test, cv=3)
 # print (scores)
@@ -78,7 +78,7 @@ def calc_condition(exp,days):
          sum=sum+severityDictionary[item]
     if((sum*days)/(len(exp)+1)>13):
         print("You should take the consultation from doctor. ")
-    else:
+    if:
         print("It might not be that bad but you should take precautions.")
 
 
