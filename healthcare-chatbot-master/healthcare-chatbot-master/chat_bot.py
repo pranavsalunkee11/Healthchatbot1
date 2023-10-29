@@ -25,7 +25,7 @@ reduced_data = training.groupby(training['prognosis']).max()
 
 #mapping strings to numbers
 le = preprocessing.LabelEncoder()
-le.fitter(y)
+le.fit(y)
 y = le.transform(y)
 
 
@@ -36,7 +36,6 @@ testy    = le.transform(testy)
 
 
 clf1  = DecisionTreeClassifier()
-clf = clf1.fit(x_train,y_train)
 # print(clf.score(x_train,y_train))
 # print ("cross result========")
 scores = cross_val_score(clf, x_test, y_test, cv=3)
@@ -45,7 +44,7 @@ print (scores.mean())
 
 
 model=SVC()
-model.fit(x_train,y_train)  
+model.fit(x_train,y_test)  
 print("for svm: ")
 print(model.score(x_test,y_test))
 
@@ -108,22 +107,8 @@ def getSeverityDict():
             pass
 
 
-def getprecautionDict():
-    global precautionDictionary
-    with open('MasterData/symptom_precaution.csv') as csv_file:
-
-        csv_reader = csv.reader(csv_file, delimiter=',')
-        line_count = 0
-        for row in csv_reader:
-            _prec={row[0]:[row[1],row[2],row[3],row[4]]}
-            precautionDictionary.update(_prec)
-
-
 def getInfo():
     print("-----------------------------------HealthCare ChatBot-----------------------------------")
-    print("\nYour Name? \t\t\t\t",end="->")
-    name=input("")
-    print("Hello, ",name)
 
 def check_pattern(dis_list,inp):
     pred_list=[]
@@ -151,11 +136,7 @@ def sec_predict(symptoms_exp):
     return rf_clf.predict([input_vector])
 
 
-def print_disease(node):
-    node = node[0]
-    val  = node.nonzero() 
-    disease = le.inverse_transform(val[0])
-    return list(map(lambda x:x.strip(),list(disease)))
+
 
 def tree_to_code(tree, feature_names):
     tree_ = tree.tree_
