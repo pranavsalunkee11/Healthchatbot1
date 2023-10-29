@@ -141,6 +141,12 @@ def sec_predict(symptoms_exp):
     rf_clf = DecisionTreeClassifier()
     rf_clf.fit(X_train, y_train)
 
+    def print_disease(node):
+    node = node[0]
+    val  = node.nonzero() 
+    disease = le.inverse_transform(val[0])
+    return list(map(lambda x:x.strip(),list(disease)))
+
     symptoms_dict = {symptom: index for index, symptom in enumerate(X)}
     input_vector = np.zeros(len(symptoms_dict))
     for item in symptoms_exp:
