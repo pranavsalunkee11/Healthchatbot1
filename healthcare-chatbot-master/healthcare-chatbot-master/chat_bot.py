@@ -110,6 +110,10 @@ def getSeverityDict():
 def getInfo():
     print("-----------------------------------HealthCare ChatBot-----------------------------------")
 
+print("\nYour Name? \t\t\t\t",end="->")
+    name=input("")
+    print("Hello, ",name)
+
 def check_pattern(dis_list,inp):
     pred_list=[]
     inp=inp.replace(' ','_')
