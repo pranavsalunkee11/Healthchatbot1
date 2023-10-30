@@ -23,11 +23,6 @@ y1= y
 
 reduced_data = training.groupby(training['prognosis']).max()  
 
-#mapping strings to numbers
-le = preprocessing.LabelEncoder()
-le.fit(y)
-y = le.transform(y)
-
 
 x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.33, random_state=42)
 testx    = testing[cols]
